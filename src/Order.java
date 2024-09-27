@@ -13,8 +13,8 @@ public class Order {
 
     public Order(Cart cart, String subscription) {
         this.items = cart.getItems();
-        this.priceCalc = new PriceCalculator(subscription);
-        this.orderPrice = calculateTotalPrice();
+        this.priceCalc = new PriceCalculator(subscription, cart);
+        this.orderPrice = priceCalc.calculateTotalPrice(cart);
     }
 
     public void setShippingAddress(Address shippingAddress) {
@@ -52,13 +52,5 @@ public class Order {
         System.out.println("Order Price: $" + orderPrice);
     }
 
-    public double calculateTotalPrice() {
-        double totalPrice = 0.0;
 
-        for (CartItem item : items) { 
-            totalPrice += item.getTotalPrice();
-        }
-        
-        return this.priceCalc.calculatePrice(totalPrice);
-    }
 }
