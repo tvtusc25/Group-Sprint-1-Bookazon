@@ -2,33 +2,28 @@ import java.util.ArrayList;
 
 public class PriceCalculator{
 
-    Sring subscription;
+    String subscription;
     double discount;
 
     public PriceCalculator(String subscription){
         if (subscription == "gold"){
-            this.discount = 0.15;
+            this.discount = 1-0.15;
         }
-        if (subscription == "platinum"){
-            this.discount = 0.1;
+        else if (subscription == "platinum"){
+            this.discount = 1-0.1;
         }
-        if (subscription == "silver"){
-            this.discount = 0.05;
+        else if (subscription == "silver"){
+            this.discount = 1-0.05;
+        }
+        else{
+            this.discount = 1.0;
         }
 
     }
 
 
-    public double calculatePrice(String subscription) {
-        double totalPrice = 0.0;
-
-        for (CartItem item : items) {
-            totalPrice += item.getTotalPrice();
-        }
-
-        totalPrice = totalPrice * this.discount;
-
-        return totalPrice;
+    public double calculatePrice(double totalPrice) {
+        return totalPrice * this.discount;
     }
 
 }
