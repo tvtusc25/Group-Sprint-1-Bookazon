@@ -11,7 +11,7 @@ public class Bookazon {
         users = new ArrayList<>();
     }
 
-    public void addBook(Media media) {
+    public void addMedia(Media media) {
         mediaList.add(media);
     }
 
@@ -57,9 +57,9 @@ public class Bookazon {
         Bookazon bookazon = new Bookazon();
         
         // create books
-        bookazon.addBook(new Book("The Great Gatsby", "F. Scott Fitzgerald", 1925, 9.99, true));
-        bookazon.addBook(new EBook("To Kill a Mockingbird", "Harper Lee", 1960, 7.99));
-        bookazon.addBook(new Audiobook("1984", "George Orwell", 1949, 8.99));
+        bookazon.addMedia(new Book("The Great Gatsby", "F. Scott Fitzgerald", 1925, 9.99, true));
+        bookazon.addMedia(new EBook("To Kill a Mockingbird", "Harper Lee", 1960, 7.99));
+        bookazon.addMedia(new Audiobook("1984", "George Orwell", 1949, 8.99));
 
         // create users
         bookazon.addUser(new User("Alice", "normal"));

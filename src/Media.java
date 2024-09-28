@@ -68,10 +68,7 @@ public abstract class Media{
     }
 
     public void printDetails() {
-        System.out.println("Title: " + this.title);
-        System.out.println("Author: " + this.author);
-        System.out.println("Year Published: " + yearPublished);
-        System.out.println("Price: $" + price);
+        System.out.println("Title: " + this.title + "\n" +"Author: " + this.author + "\n" +  "Year Published: " + this.yearPublished + "\n" + "Price: $" + this.price);
     }
 
 
