@@ -56,8 +56,8 @@ public class User {
 
     public void checkout() {
         Order order = new Order(cart, this.subscription);
-        order.setShippingAddress(new Address("123 Main St", "", "Springfield", "IL", "62701", "USA"));
-        order.setBillingAddress(new Address("123 Main St", "", "Springfield", "IL", "62701", "USA"));
+        order.setShippingAddress(this.shippingAddress);
+        order.setBillingAddress(this.billingAddress);
         order.setOrderStatus("Order Placed");
         order.setDateCreated("2024-01-01");
         order.setUserName(this.name);
