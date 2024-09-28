@@ -9,12 +9,10 @@ public class Order {
     private Address billingAddress;
     private ArrayList<CartItem> items;
     private double orderPrice;
-    private PriceCalculator priceCalc;
 
-    public Order(Cart cart, String subscription) {
+    public Order(Cart cart, Subscription subscription) {
         this.items = cart.getItems();
-        this.priceCalc = new PriceCalculator(subscription, cart);
-        this.orderPrice = priceCalc.calculateTotalPrice(cart);
+        this.orderPrice = PriceCalculator.calculateTotalPrice(items, subscription.getDiscountMultiplier());
     }
 
     public void setShippingAddress(Address shippingAddress) {
