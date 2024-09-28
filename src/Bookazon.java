@@ -62,8 +62,8 @@ public class Bookazon {
         bookazon.addMedia(new Audiobook("1984", "George Orwell", 1949, 8.99));
 
         // create users
-        bookazon.addUser(new User("Alice", Subscription.NORMAL));
-        bookazon.addUser(new User("Bob", Subscription.GOLD));
+        bookazon.addUser(new User("Alice", Subscription.NORMAL, new Cart()));
+        bookazon.addUser(new User("Bob", Subscription.GOLD, new Cart()));
 
         // add books to cart
         bookazon.users.get(0).addToCart(bookazon.mediaList.get(0), 1);
