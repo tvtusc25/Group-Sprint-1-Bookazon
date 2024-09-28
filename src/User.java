@@ -41,18 +41,11 @@ public class User {
     }
 
     public void addToCart(Media media, int quantity) {
-        CartItem newItem = new CartItem(media.getTitle(), media.getPrice(), quantity);
-        cart.addItem(newItem);
-        cart.updateQuantity(newItem, quantity);
+        cart.addItem(new CartItem(media.getTitle(), media.getPrice(), quantity));
     }
 
     public void removeFromCart(Media media) {
-        for (CartItem item : cart.getItems()) {
-            if (item.getName().equals(media.getTitle())) {
-                cart.getItems().remove(item);
-                break;
-            }
-        }
+        cart.removeItem(media.getTitle());
     }
 
     public void viewOrders() {

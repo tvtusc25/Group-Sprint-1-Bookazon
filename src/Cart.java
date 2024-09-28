@@ -8,20 +8,17 @@ public class Cart {
     }
     
     public void addItem(CartItem item) {
+        for (CartItem cartItem : items) {
+            if (cartItem.getName().equals(item.getName())) {
+                cartItem.setQuantity(cartItem.getQuantity() + item.getQuantity());
+                return;
+            }
+        }
         items.add(item);
     }
 
-    public void removeItem(CartItem item) {
-        items.remove(item);
-    }
-    
-    public void updateQuantity(CartItem item, int quantity) {
-        for (CartItem cartItem : items) {
-            if (cartItem.equals(item)) {
-                cartItem.setQuantity(quantity);
-                break;
-            }
-        }
+    public void removeItem(String itemName) {
+        items.removeIf(cartItem -> cartItem.getName().equals(itemName));
     }
     
     public void viewCartDetails() {
