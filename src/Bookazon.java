@@ -38,14 +38,7 @@ public class Bookazon {
     public void removeUser(User user) {
         users.remove(user);
     }
-
-    public void updateBookDetails(Book book, String newTitle, String newAuthor, int newYearPublished, double newPrice, boolean isPaperback) {
-        book.setTitle(newTitle);
-        book.setAuthor(newAuthor);
-        book.setYearPublished(newYearPublished);
-        book.setPrice(newPrice);
-        book.setPaperback(isPaperback);
-    }
+  
 
     public void updateRole(User user, String role) {
         user.setSubscription(role);
