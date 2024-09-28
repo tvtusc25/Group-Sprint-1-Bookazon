@@ -4,15 +4,15 @@ import java.util.ArrayList;
 public class User {
     private String name;
     private Subscription subscription;
-    private Cart cart;
     private ArrayList<Order> orders;
+    private Cart cart;
     private Address shippingAddress;
     private Address billingAddress;
 
-    public User(String name, Subscription subscription) {
+    public User(String name, Subscription subscription, Cart cart) {
         this.name = name;
         this.subscription = subscription;
-        this.cart = new Cart();
+        this.cart = cart;
         this.orders = new ArrayList<>();
     }
 
