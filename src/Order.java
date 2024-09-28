@@ -9,10 +9,12 @@ public class Order {
     private Address billingAddress;
     private ArrayList<CartItem> items;
     private double orderPrice;
+    private PriceCalculator priceCalc;
 
     public Order(Cart cart, String subscription) {
         this.items = cart.getItems();
-        this.orderPrice = calculatePrice(subscription);
+        this.priceCalc = new PriceCalculator(subscription, cart);
+        this.orderPrice = priceCalc.calculateTotalPrice(cart);
     }
 
     public void setShippingAddress(Address shippingAddress) {
@@ -50,21 +52,5 @@ public class Order {
         System.out.println("Order Price: $" + orderPrice);
     }
 
-    public double calculatePrice(String subscription) {
-        double totalPrice = 0.0;
 
-        for (CartItem item : items) {
-            totalPrice += item.getTotalPrice();
-        }
-
-        if (subscription == "gold") {
-            totalPrice *= 0.15; // 15% discount for prime members
-        } else if (subscription == "platinum") {
-            totalPrice *= 0.10; // 10% discount for platinum members
-        } else if (subscription == "silver") {
-            totalPrice *= 0.05; // 5% discount for silver members
-        } 
-
-        return totalPrice;
-    }
 }
