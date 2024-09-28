@@ -9,10 +9,12 @@ public class Order {
     private Address billingAddress;
     private ArrayList<CartItem> items;
     private double orderPrice;
+    private double discountMultipler;
 
     public Order(Cart cart, Subscription subscription) {
         this.items = cart.getItems();
-        this.orderPrice = PriceCalculator.calculateTotalPrice(items, subscription.getDiscountMultiplier());
+        this.discountMultipler = subscription.getDiscountMultiplier();
+        this.orderPrice = PriceCalculator.calculateTotalPrice(items, discountMultipler);
     }
 
     public void setShippingAddress(Address shippingAddress) {
@@ -44,6 +46,7 @@ public class Order {
         System.out.println("Date Created: " + dateCreated);
         System.out.println("Date Shipped: " + dateShipped);
         System.out.println("User Name: " + userName);
+        System.out.println("Discount: " + Math.round((1 - this.discountMultipler) * 100) + "%");
         System.out.println("Order Status: " + orderStatus);
         System.out.println("Shipping Address: " + shippingAddress.toString());
         System.out.println("Billing Address: " + billingAddress.toString());
