@@ -40,8 +40,8 @@ public class User {
         this.billingAddress = billingAddress;
     }
 
-    public void addToCart(Media media, int quantity) {
-        cart.addItem(new CartItem(media.getTitle(), media.getPrice(), quantity));
+    public void addToCart(CartItem cartItem) {
+        cart.addItem(cartItem);
     }
 
     public void removeFromCart(Media media) {
