@@ -59,8 +59,8 @@ public class Bookazon {
         bookazon.addUser(new User("Bob", Subscription.GOLD, new Cart()));
 
         // add books to cart
-        bookazon.users.get(0).addToCart(bookazon.mediaList.get(0), 1);
-        bookazon.users.get(0).addToCart(bookazon.mediaList.get(1), 2);
+        bookazon.users.get(0).addToCart(new CartItem(bookazon.mediaList.get(0).getTitle(), bookazon.mediaList.get(0).getPrice(), 1));
+        bookazon.users.get(0).addToCart(new CartItem(bookazon.mediaList.get(1).getTitle(), bookazon.mediaList.get(1).getPrice(), 2));
 
         // view cart
         bookazon.users.get(0).viewCart();
