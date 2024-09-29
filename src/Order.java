@@ -41,6 +41,14 @@ public class Order {
         this.userName = name;
     }
 
+    public void checkout(String userName, Address shippingAddress, Address billingAddress){
+        this.setShippingAddress(shippingAddress);
+        this.setBillingAddress(billingAddress);
+        this.setOrderStatus("Order Placed");
+        this.setDateCreated("2024-01-01");
+        this.setUserName(userName);
+    }
+
     public void printOrderDetails() {
         System.out.println("Order Details:");
         System.out.println("Date Created: " + dateCreated);
