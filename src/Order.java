@@ -1,8 +1,9 @@
+import java.time.LocalDate;
 import java.util.ArrayList;
 
 public class Order {
-    private String dateCreated;
-    private String dateShipped;
+    private LocalDate dateCreated;
+    private LocalDate dateShipped;
     private String userName;
     private String orderStatus;
     private Address shippingAddress;
@@ -29,16 +30,24 @@ public class Order {
         this.orderStatus = status;
     }
 
-    public void setDateCreated(String date) {
+    public void setDateCreated(LocalDate date) {
         this.dateCreated = date;
     }
 
-    public void setDateShipped(String date) {
+    public void setDateShipped(LocalDate date) {
         this.dateShipped = date;
     }
 
     public void setUserName(String name) {
         this.userName = name;
+    }
+
+    public void checkout(String userName, Address shippingAddress, Address billingAddress){
+        this.setShippingAddress(shippingAddress);
+        this.setBillingAddress(billingAddress);
+        this.setOrderStatus("Order Placed");
+        this.setDateCreated(LocalDate.now());
+        this.setUserName(userName);
     }
 
     public void printOrderDetails() {

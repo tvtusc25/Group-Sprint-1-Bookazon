@@ -70,7 +70,8 @@ public class Bookazon {
         bookazon.users.get(0).setBillingAddress(new Address("456 Elm St", "", "Springfield", "IL", "62702", "USA"));
 
         // checkout
-        bookazon.users.get(0).checkout();
+        bookazon.users.get(0).checkout(new Order(bookazon.users.get(0).getCart(), bookazon.users.get(0).getSubscriptionObject()));
+
 
         // view order details
         bookazon.users.get(0).viewOrders();

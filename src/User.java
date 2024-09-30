@@ -24,6 +24,14 @@ public class User {
         return subscription.name();
     }
 
+    public Subscription getSubscriptionObject(){
+        return this.subscription;
+    }
+
+    public Cart getCart(){
+        return this.cart; 
+    }
+
     public void setSubscription(Subscription subscription) {
         this.subscription = subscription;
     }
@@ -54,14 +62,9 @@ public class User {
         }
     }
 
-    public void checkout() {
-        Order order = new Order(cart, this.subscription);
-        order.setShippingAddress(this.shippingAddress);
-        order.setBillingAddress(this.billingAddress);
-        order.setOrderStatus("Order Placed");
-        order.setDateCreated("2024-01-01");
-        order.setUserName(this.name);
-        orders.add(order);
+    public void checkout(Order order) {
+        order.checkout(this.name, this.shippingAddress, this.billingAddress);
+        this.orders.add(order); 
     }
 }
 
