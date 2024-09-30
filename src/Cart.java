@@ -21,7 +21,7 @@ public class Cart {
         items.removeIf(cartItem -> cartItem.getName().equals(itemName));
     }
     
-    public void viewCartDetails() {
+    public void viewCartDetails() { 
         System.out.println("Cart Details:");
         for (CartItem item : items) {
             System.out.println(item.getName() + " - Quantity: " + item.getQuantity());
