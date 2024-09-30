@@ -64,7 +64,7 @@ public class User {
 
     public void checkout(Order order) {
         order.checkout(this.name, this.shippingAddress, this.billingAddress);
-        this.orders.add(order); 
+        this.orders.add(order);
     }
 }
 

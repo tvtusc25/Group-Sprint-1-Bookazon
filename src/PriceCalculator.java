@@ -4,7 +4,7 @@ public class PriceCalculator {
     public static double calculateTotalPrice(ArrayList<CartItem> items, double discount) {
         double totalPrice = 0.0;
 
-        for (CartItem item : items) { 
+        for (CartItem item : items) {
             totalPrice += item.getTotalPrice();
         }
 
