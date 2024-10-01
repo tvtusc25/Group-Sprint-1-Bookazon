@@ -24,10 +24,38 @@ public class Address {
 
     // Validation
     private void validateAddress(String line1, String line2, String city, String state, String zip, String country) {
+        // Null check
         if (line1 == null || line2 == null || city == null || state == null || zip == null || country == null) {
             throw new IllegalArgumentException("Address fields cannot be null");
         }
-        // Add more validation as needed
+
+        // line1 and line2 (non-empty, <100 characters)
+        if (line1.trim().isEmpty() || line1.length() > 100) {
+            throw new IllegalArgumentException("Address Line 1 must be non-empty and less than 100 characters");
+        }
+        if (!line2.trim().isEmpty() && line2.length() > 100) {
+            throw new IllegalArgumentException("Address Line 2 must be less than 100 characters if provided");
+        }
+
+        // city (non-empty, alphabetic characters, <50 characters)
+        if (city.trim().isEmpty() || !city.matches("^[a-zA-Z\\s]+$") || city.length() > 50) {
+            throw new IllegalArgumentException("City must be non-empty, alphabetic, and less than 50 characters");
+        }
+
+        // state (non-empty, 2-letter code)
+        if (state.trim().isEmpty() || state.length() != 2 || !state.matches("^[A-Z]{2}$")) {
+            throw new IllegalArgumentException("State must be a valid 2-letter uppercase code");
+        }
+
+        // zip (non-empty, numeric, and 5/9 characters)
+        if (zip.trim().isEmpty() || !zip.matches("^\\d{5}(?:-\\d{4})?$")) {
+            throw new IllegalArgumentException("Zip code must be a valid 5 or 9 digit code (##### or #####-####)");
+        }
+
+        // country (non-empty, alphabetic characters, <50 characters)
+        if (country.trim().isEmpty() || !country.matches("^[a-zA-Z\\s]+$") || country.length() > 50) {
+            throw new IllegalArgumentException("Country must be alphabetic and less than 50 characters");
+        }
     }
 
     // Getters
